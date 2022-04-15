@@ -10,5 +10,13 @@ public class Client {
 
         onlineCourse.addStudent(student);
         onlineCourse.changeState(OnlineCourse.State.PRIVATE);
+
+        onlineCourse.addStudent(soon);
+
+        onlineCourse.addReview("hello", student);
+
+        System.out.println(onlineCourse.getState());
+        System.out.println(onlineCourse.getStudents());
+        System.out.println(onlineCourse.getReviews());
     }
 }

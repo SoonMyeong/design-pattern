@@ -10,4 +10,9 @@ public class Student {
     public void addPrivateCourse(OnlineCourse onlineCourse) {
 
     }
+
+    public boolean isEnableForPrivateClass(OnlineCourse onlineCourse) {
+        return true;
+    }
+
 }

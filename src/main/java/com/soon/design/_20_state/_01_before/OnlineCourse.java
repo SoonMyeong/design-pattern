@@ -15,7 +15,7 @@ public class OnlineCourse {
 
     public void addReview(String review, Student student) {
         if(state == State.PUBLISHED) {
-
+            reviews.add(review);
         }
         if(state == State.PRIVATE && students.contains(student)) {
             reviews.add(review);
@@ -29,7 +29,7 @@ public class OnlineCourse {
         if(state == State.PUBLISHED) {
             students.add(student);
         }
-        if(state == State.PRIVATE && students.contains(student)) {
+        if(state == State.PRIVATE && availableTo(student)) {
             students.add(student);
         }
         if(state == State.DRAFT) {
@@ -42,12 +42,20 @@ public class OnlineCourse {
 
     }
 
+    private boolean availableTo(Student student) {
+         return student.isEnableForPrivateClass(this);
+    }
+
     public void changeState(State newState) {
         state = newState;
     }
 
     public State getState() {
         return state;
+    }
+
+    public List<Student> getStudents() {
+        return students;
     }
 
     public List<String> getReviews() {
